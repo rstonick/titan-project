@@ -1,0 +1,74 @@
+# Model and dataset configuration
+model:
+  name: "mistralai/Mistral-7B-v0.1"
+  dataset_name: "truthful_qa"
+  output_dir: "mistral-7b-truthfulqa-lora"
+  wandb_project: "mistral-lora-truthfulqa"
+
+# LoRA configuration
+lora:
+  # Basic parameters
+  basic:
+    r: 8                    # Rank of the update matrices
+    alpha: 32               # Scaling factor
+    dropout: 0.05          # Dropout probability
+
+  # Target modules and layers
+  target_modules:
+    - "q_proj"
+    - "k_proj"
+    - "v_proj"
+    - "o_proj"
+    - "gate_proj"
+    - "up_proj"
+    - "down_proj"
+
+  # Advanced parameters
+  advanced:
+    bias: "none"           # Bias training mode: 'none', 'all', 'lora_only'
+    task_type: "CAUSAL_LM" # Task type for the model
+    fan_in_fan_out: false  # Set to true for linear layers where fan_in != fan_out
+    modules_to_save: null  # List of modules to save in full besides LoRA
+    init_lora_weights: true # Whether to initialize LoRA weights
+
+  # Layer-wise configurations
+  rank_pattern:
+    q_proj: 8
+    k_proj: 8
+    v_proj: 16            # Higher rank for value projection
+    o_proj: 8
+    gate_proj: 4          # Lower rank for gate projection
+    up_proj: 8
+    down_proj: 8
+
+  alpha_pattern:
+    q_proj: 32
+    k_proj: 32
+    v_proj: 64            # Higher alpha for value projection
+    o_proj: 32
+    gate_proj: 16         # Lower alpha for gate projection
+    up_proj: 32
+    down_proj: 32
+
+# Training configuration
+training:
+  max_length: 2048
+  batch_size: 4
+  gradient_accumulation_steps: 4
+  learning_rate: 2.0e-4
+  num_epochs: 3
+  warmup_ratio: 0.03
+
+# Quantization configuration
+quantization:
+  load_in_4bit: true
+  use_double_quant: true
+  quant_type: "nf4"
+  compute_dtype: "float16"
+
+# Training arguments
+trainer:
+  logging_steps: 10
+  save_strategy: "epoch"
+  evaluation_strategy: "epoch"
+  fp16: true 

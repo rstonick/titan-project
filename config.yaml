@@ -74,5 +74,5 @@ quantization:
 trainer:
   logging_steps: 10
   save_strategy: "epoch"
-  evaluation_strategy: "epoch"
+  evaluation_strategy: "steps"
   fp16: true

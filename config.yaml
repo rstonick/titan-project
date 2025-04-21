@@ -1,9 +1,13 @@
 # Model and dataset configuration
 model:
   name: "mistralai/Mistral-7B-v0.1"
-  dataset_name: "truthful_qa"
-  output_dir: "mistral-7b-truthfulqa-lora"
-  wandb_project: "mistral-lora-truthfulqa"
+  output_dir: "mistral-7b-triviaqa-lora"
+  wandb_project: "mistral-lora-triviaqa"
+
+# Dataset configuration
+dataset:
+  dataset_name: "trivia_qa"
+  subset_size: 1000  # Default subset size for loading the dataset
 
 # LoRA configuration
 lora:
@@ -25,11 +29,11 @@ lora:
 
   # Advanced parameters
   advanced:
-    bias: "none"           # Bias training mode: 'none', 'all', 'lora_only'
-    task_type: "CAUSAL_LM" # Task type for the model
-    fan_in_fan_out: false  # Set to true for linear layers where fan_in != fan_out
-    modules_to_save: null  # List of modules to save in full besides LoRA
-    init_lora_weights: true # Whether to initialize LoRA weights
+    bias: "none"                    # Bias training mode: 'none', 'all', 'lora_only'
+    task_type: "QUESTION_ANS"       # Task type for the model
+    fan_in_fan_out: false           # Set to true for linear layers where fan_in != fan_out
+    modules_to_save: null           # List of modules to save in full besides LoRA
+    init_lora_weights: true         # Whether to initialize LoRA weights
 
   # Layer-wise configurations
   rank_pattern:
@@ -61,7 +65,7 @@ training:
 
 # Quantization configuration
 quantization:
-  load_in_4bit: true
+  quantization_type: "4bit"  # Options: "none", "4bit", "8bit"
   use_double_quant: true
   quant_type: "nf4"
   compute_dtype: "float16"
@@ -71,4 +75,4 @@ trainer:
   logging_steps: 10
   save_strategy: "epoch"
   evaluation_strategy: "epoch"
-  fp16: true 
+  fp16: true

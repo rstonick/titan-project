@@ -1,0 +1,108 @@
+[33m2d95788[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m adding the models ran on PACE for evaluation and training.
+ stonick-runs_1/mistral-7b-triviaqa-lora-H100-run1/README.md                               |    202 [32m+[m
+ stonick-runs_1/mistral-7b-triviaqa-lora-H100-run1/adapter_config.json                     |     55 [32m+[m
+ stonick-runs_1/mistral-7b-triviaqa-lora-H100-run1/adapter_model.safetensors               |    Bin [31m0[m -> [32m79751040[m bytes
+ stonick-runs_1/mistral-7b-triviaqa-lora-H100-run1/checkpoint-27/README.md                 |    202 [32m+[m
+ stonick-runs_1/mistral-7b-triviaqa-lora-H100-run1/checkpoint-27/adapter_config.json       |     55 [32m+[m
+ stonick-runs_1/mistral-7b-triviaqa-lora-H100-run1/checkpoint-27/adapter_model.safetensors |    Bin [31m0[m -> [32m79751040[m bytes
+ stonick-runs_1/mistral-7b-triviaqa-lora-H100-run1/checkpoint-27/optimizer.pt              |    Bin [31m0[m -> [32m159760466[m bytes
+ stonick-runs_1/mistral-7b-triviaqa-lora-H100-run1/checkpoint-27/rng_state.pth             |    Bin [31m0[m -> [32m14244[m bytes
+ stonick-runs_1/mistral-7b-triviaqa-lora-H100-run1/checkpoint-27/scaler.pt                 |    Bin [31m0[m -> [32m988[m bytes
+ stonick-runs_1/mistral-7b-triviaqa-lora-H100-run1/checkpoint-27/scheduler.pt              |    Bin [31m0[m -> [32m1064[m bytes
+ stonick-runs_1/mistral-7b-triviaqa-lora-H100-run1/checkpoint-27/special_tokens_map.json   |     24 [32m+[m
+ stonick-runs_1/mistral-7b-triviaqa-lora-H100-run1/checkpoint-27/tokenizer.json            | 268067 [32m++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++[m
+ stonick-runs_1/mistral-7b-triviaqa-lora-H100-run1/checkpoint-27/tokenizer_config.json     |     44 [32m+[m
+ stonick-runs_1/mistral-7b-triviaqa-lora-H100-run1/checkpoint-27/trainer_state.json        |     66 [32m+[m
+ stonick-runs_1/mistral-7b-triviaqa-lora-H100-run1/checkpoint-27/training_args.bin         |    Bin [31m0[m -> [32m5368[m bytes
+ stonick-runs_1/mistral-7b-triviaqa-lora-H100-run1/checkpoint-54/README.md                 |    202 [32m+[m
+ stonick-runs_1/mistral-7b-triviaqa-lora-H100-run1/checkpoint-54/adapter_config.json       |     55 [32m+[m
+ stonick-runs_1/mistral-7b-triviaqa-lora-H100-run1/checkpoint-54/adapter_model.safetensors |    Bin [31m0[m -> [32m79751040[m bytes
+ stonick-runs_1/mistral-7b-triviaqa-lora-H100-run1/checkpoint-54/optimizer.pt              |    Bin [31m0[m -> [32m159760466[m bytes
+ stonick-runs_1/mistral-7b-triviaqa-lora-H100-run1/checkpoint-54/rng_state.pth             |    Bin [31m0[m -> [32m14244[m bytes
+ stonick-runs_1/mistral-7b-triviaqa-lora-H100-run1/checkpoint-54/scaler.pt                 |    Bin [31m0[m -> [32m988[m bytes
+ stonick-runs_1/mistral-7b-triviaqa-lora-H100-run1/checkpoint-54/scheduler.pt              |    Bin [31m0[m -> [32m1064[m bytes
+ stonick-runs_1/mistral-7b-triviaqa-lora-H100-run1/checkpoint-54/special_tokens_map.json   |     24 [32m+[m
+ stonick-runs_1/mistral-7b-triviaqa-lora-H100-run1/checkpoint-54/tokenizer.json            | 268067 [32m++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++[m
+ stonick-runs_1/mistral-7b-triviaqa-lora-H100-run1/checkpoint-54/tokenizer_config.json     |     44 [32m+[m
+ stonick-runs_1/mistral-7b-triviaqa-lora-H100-run1/checkpoint-54/trainer_state.json        |    114 [32m+[m
+ stonick-runs_1/mistral-7b-triviaqa-lora-H100-run1/checkpoint-54/training_args.bin         |    Bin [31m0[m -> [32m5368[m bytes
+ stonick-runs_1/mistral-7b-triviaqa-lora-H100-run1/checkpoint-81/README.md                 |    202 [32m+[m
+ stonick-runs_1/mistral-7b-triviaqa-lora-H100-run1/checkpoint-81/adapter_config.json       |     55 [32m+[m
+ stonick-runs_1/mistral-7b-triviaqa-lora-H100-run1/checkpoint-81/adapter_model.safetensors |    Bin [31m0[m -> [32m79751040[m bytes
+ stonick-runs_1/mistral-7b-triviaqa-lora-H100-run1/checkpoint-81/optimizer.pt              |    Bin [31m0[m -> [32m159760466[m bytes
+ stonick-runs_1/mistral-7b-triviaqa-lora-H100-run1/checkpoint-81/rng_state.pth             |    Bin [31m0[m -> [32m14244[m bytes
+ stonick-runs_1/mistral-7b-triviaqa-lora-H100-run1/checkpoint-81/scaler.pt                 |    Bin [31m0[m -> [32m988[m bytes
+ stonick-runs_1/mistral-7b-triviaqa-lora-H100-run1/checkpoint-81/scheduler.pt              |    Bin [31m0[m -> [32m1064[m bytes
+ stonick-runs_1/mistral-7b-triviaqa-lora-H100-run1/checkpoint-81/special_tokens_map.json   |     24 [32m+[m
+ stonick-runs_1/mistral-7b-triviaqa-lora-H100-run1/checkpoint-81/tokenizer.json            | 268067 [32m++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++[m
+ stonick-runs_1/mistral-7b-triviaqa-lora-H100-run1/checkpoint-81/tokenizer_config.json     |     44 [32m+[m
+ stonick-runs_1/mistral-7b-triviaqa-lora-H100-run1/checkpoint-81/trainer_state.json        |    162 [32m+[m
+ stonick-runs_1/mistral-7b-triviaqa-lora-H100-run1/checkpoint-81/training_args.bin         |    Bin [31m0[m -> [32m5368[m bytes
+ stonick-runs_1/mistral-7b-triviaqa-lora-H100-run1/special_tokens_map.json                 |     24 [32m+[m
+ stonick-runs_1/mistral-7b-triviaqa-lora-H100-run1/tokenizer.json                          | 268067 [32m++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++[m
+ stonick-runs_1/mistral-7b-triviaqa-lora-H100-run1/tokenizer_config.json                   |     44 [32m+[m
+ stonick-runs_1/mistral-7b-triviaqa-lora-H100-run1/training_args.bin                       |    Bin [31m0[m -> [32m5368[m bytes
+ stonick-runs_1/mistral-7b-triviaqa-lora/README.md                                         |    202 [32m+[m
+ stonick-runs_1/mistral-7b-triviaqa-lora/adapter_config.json                               |     55 [32m+[m
+ stonick-runs_1/mistral-7b-triviaqa-lora/adapter_model.safetensors                         |    Bin [31m0[m -> [32m79751040[m bytes
+ stonick-runs_1/mistral-7b-triviaqa-lora/checkpoint-27/README.md                           |    202 [32m+[m
+ stonick-runs_1/mistral-7b-triviaqa-lora/checkpoint-27/adapter_config.json                 |     55 [32m+[m
+ stonick-runs_1/mistral-7b-triviaqa-lora/checkpoint-27/adapter_model.safetensors           |    Bin [31m0[m -> [32m79751040[m bytes
+ stonick-runs_1/mistral-7b-triviaqa-lora/checkpoint-27/optimizer.pt                        |    Bin [31m0[m -> [32m159760466[m bytes
+ stonick-runs_1/mistral-7b-triviaqa-lora/checkpoint-27/rng_state.pth                       |    Bin [31m0[m -> [32m14244[m bytes
+ stonick-runs_1/mistral-7b-triviaqa-lora/checkpoint-27/scaler.pt                           |    Bin [31m0[m -> [32m988[m bytes
+ stonick-runs_1/mistral-7b-triviaqa-lora/checkpoint-27/scheduler.pt                        |    Bin [31m0[m -> [32m1064[m bytes
+ stonick-runs_1/mistral-7b-triviaqa-lora/checkpoint-27/special_tokens_map.json             |     24 [32m+[m
+ stonick-runs_1/mistral-7b-triviaqa-lora/checkpoint-27/tokenizer.json                      | 268067 [32m++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++[m
+ stonick-runs_1/mistral-7b-triviaqa-lora/checkpoint-27/tokenizer_config.json               |     44 [32m+[m
+ stonick-runs_1/mistral-7b-triviaqa-lora/checkpoint-27/trainer_state.json                  |     66 [32m+[m
+ stonick-runs_1/mistral-7b-triviaqa-lora/checkpoint-27/training_args.bin                   |    Bin [31m0[m -> [32m5304[m bytes
+ stonick-runs_1/mistral-7b-triviaqa-lora/checkpoint-54/README.md                           |    202 [32m+[m
+ stonick-runs_1/mistral-7b-triviaqa-lora/checkpoint-54/adapter_config.json                 |     55 [32m+[m
+ stonick-runs_1/mistral-7b-triviaqa-lora/checkpoint-54/adapter_model.safetensors           |    Bin [31m0[m -> [32m79751040[m bytes
+ stonick-runs_1/mistral-7b-triviaqa-lora/checkpoint-54/optimizer.pt                        |    Bin [31m0[m -> [32m159760466[m bytes
+ stonick-runs_1/mistral-7b-triviaqa-lora/checkpoint-54/rng_state.pth                       |    Bin [31m0[m -> [32m14244[m bytes
+ stonick-runs_1/mistral-7b-triviaqa-lora/checkpoint-54/scaler.pt                           |    Bin [31m0[m -> [32m988[m bytes
+ stonick-runs_1/mistral-7b-triviaqa-lora/checkpoint-54/scheduler.pt                        |    Bin [31m0[m -> [32m1064[m bytes
+ stonick-runs_1/mistral-7b-triviaqa-lora/checkpoint-54/special_tokens_map.json             |     24 [32m+[m
+ stonick-runs_1/mistral-7b-triviaqa-lora/checkpoint-54/tokenizer.json                      | 268067 [32m++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++[m
+ stonick-runs_1/mistral-7b-triviaqa-lora/checkpoint-54/tokenizer_config.json               |     44 [32m+[m
+ stonick-runs_1/mistral-7b-triviaqa-lora/checkpoint-54/trainer_state.json                  |    114 [32m+[m
+ stonick-runs_1/mistral-7b-triviaqa-lora/checkpoint-54/training_args.bin                   |    Bin [31m0[m -> [32m5304[m bytes
+ stonick-runs_1/mistral-7b-triviaqa-lora/checkpoint-81/README.md                           |    202 [32m+[m
+ stonick-runs_1/mistral-7b-triviaqa-lora/checkpoint-81/adapter_config.json                 |     55 [32m+[m
+ stonick-runs_1/mistral-7b-triviaqa-lora/checkpoint-81/adapter_model.safetensors           |    Bin [31m0[m -> [32m79751040[m bytes
+ stonick-runs_1/mistral-7b-triviaqa-lora/checkpoint-81/optimizer.pt                        |    Bin [31m0[m -> [32m159760466[m bytes
+ stonick-runs_1/mistral-7b-triviaqa-lora/checkpoint-81/rng_state.pth                       |    Bin [31m0[m -> [32m14244[m bytes
+ stonick-runs_1/mistral-7b-triviaqa-lora/checkpoint-81/scaler.pt                           |    Bin [31m0[m -> [32m988[m bytes
+ stonick-runs_1/mistral-7b-triviaqa-lora/checkpoint-81/scheduler.pt                        |    Bin [31m0[m -> [32m1064[m bytes
+ stonick-runs_1/mistral-7b-triviaqa-lora/checkpoint-81/special_tokens_map.json             |     24 [32m+[m
+ stonick-runs_1/mistral-7b-triviaqa-lora/checkpoint-81/tokenizer.json                      | 268067 [32m++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++[m
+ stonick-runs_1/mistral-7b-triviaqa-lora/checkpoint-81/tokenizer_config.json               |     44 [32m+[m
+ stonick-runs_1/mistral-7b-triviaqa-lora/checkpoint-81/trainer_state.json                  |    162 [32m+[m
+ stonick-runs_1/mistral-7b-triviaqa-lora/checkpoint-81/training_args.bin                   |    Bin [31m0[m -> [32m5304[m bytes
+ stonick-runs_1/mistral-7b-triviaqa-lora/special_tokens_map.json                           |     24 [32m+[m
+ stonick-runs_1/mistral-7b-triviaqa-lora/tokenizer.json                                    | 268067 [32m++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++[m
+ stonick-runs_1/mistral-7b-triviaqa-lora/tokenizer_config.json                             |     44 [32m+[m
+ stonick-runs_1/mistral-7b-triviaqa-lora/training_args.bin                                 |    Bin [31m0[m -> [32m5304[m bytes
+ 86 files changed, 2147820 insertions(+)
+[33me3338f2[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Update eval_strategy to STEPS
+ config.yaml | 2 [32m+[m[31m-[m
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+[33m4babfe2[m fine-tune Mistral-LoRA model using TriviaQA dataset
+ code/__init__.py          |   1 [32m+[m
+ code/config_loader.py     |   8 [32m++++++++[m
+ code/data_preparation.py  |  92 [32m+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++[m
+ code/metrics.py           |  32 [32m+++++++++++++++++++++++++++++++[m
+ code/model_preparation.py |  59 [32m+++++++++++++++++++++++++++++++++++++++++++++++++++++++++[m
+ config.yaml               |  24 [32m++++++++++++++[m[31m----------[m
+ train_mistral_lora.py     | 173 [32m+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++[m[31m------------------------------------------------------------------------------------------------------[m
+ 7 files changed, 273 insertions(+), 116 deletions(-)
+[33m18aff87[m First commit - draft code
+ config.yaml           |  74 [32m++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++[m
+ requirements.txt      |  12 [32m++++++++++++[m
+ train_mistral_lora.py | 153 [32m+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++[m
+ 3 files changed, 239 insertions(+)
+[33m8f3e917[m Update README.md
+ README.md | 2 [32m++[m
+ 1 file changed, 2 insertions(+)

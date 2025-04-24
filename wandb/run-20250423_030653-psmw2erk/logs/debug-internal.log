@@ -1,0 +1,15 @@
+{"time":"2025-04-23T03:06:53.817838537-04:00","level":"INFO","msg":"stream: starting","core version":"0.19.10","symlink path":"/storage/ice1/0/0/rstonick3/titan-project/wandb/run-20250423_030653-psmw2erk/logs/debug-core.log"}
+{"time":"2025-04-23T03:06:53.977976967-04:00","level":"INFO","msg":"created new stream","id":"psmw2erk"}
+{"time":"2025-04-23T03:06:53.978026666-04:00","level":"INFO","msg":"stream: started","id":"psmw2erk"}
+{"time":"2025-04-23T03:06:53.97803854-04:00","level":"INFO","msg":"handler: started","stream_id":"psmw2erk"}
+{"time":"2025-04-23T03:06:53.978041896-04:00","level":"INFO","msg":"sender: started","stream_id":"psmw2erk"}
+{"time":"2025-04-23T03:06:53.978049427-04:00","level":"INFO","msg":"writer: Do: started","stream_id":"psmw2erk"}
+{"time":"2025-04-23T03:06:54.125828826-04:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-23T03:45:50.289748018-04:00","level":"INFO","msg":"stream: closing","id":"psmw2erk"}
+{"time":"2025-04-23T03:45:50.289827802-04:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-04-23T03:45:50.290516167-04:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-04-23T03:45:50.877136861-04:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-04-23T03:45:51.144499711-04:00","level":"INFO","msg":"handler: closed","stream_id":"psmw2erk"}
+{"time":"2025-04-23T03:45:51.144551135-04:00","level":"INFO","msg":"writer: Close: closed","stream_id":"psmw2erk"}
+{"time":"2025-04-23T03:45:51.144557856-04:00","level":"INFO","msg":"sender: closed","stream_id":"psmw2erk"}
+{"time":"2025-04-23T03:45:51.144789984-04:00","level":"INFO","msg":"stream: closed","id":"psmw2erk"}

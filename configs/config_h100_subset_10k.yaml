@@ -1,0 +1,41 @@
+model:
+  name: "mistralai/Mistral-7B-v0.1"
+  output_dir: "./output/h100_subset_10k_output"
+  wandb_project: "mistral-lora-triviaqa-h100-subsets"
+  wandb_run_name: "H100-Subset-10k-Steps1000"
+
+dataset:
+  dataset_name: "trivia_qa"
+  dataset_subset: "rc.nocontext"
+  subset_size: 10000 # <<< Key change
+
+lora: # Same LoRA config as above
+  basic: {r: 8, alpha: 32, dropout: 0.05}
+  target_modules: ["q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"]
+  advanced: {bias: "none", task_type: "CAUSAL_LM", fan_in_fan_out: false, modules_to_save: null, init_lora_weights: true}
+  rank_pattern: {}
+  alpha_pattern: {}
+
+training: # Same training config as above
+  max_length: 2048
+  batch_size: 12
+  gradient_accumulation_steps: 2
+  num_epochs: 5
+  learning_rate: 2.0e-4
+  warmup_ratio: 0.03
+
+quantization: # Same quantization config as above
+  quantization_type: "4bit"
+  use_double_quant: true
+  quant_type: "nf4"
+  compute_dtype: "float16"
+
+trainer: # Same trainer config as above
+  logging_steps: 50
+  save_strategy: "steps"
+  save_steps: 500
+  evaluation_strategy: "steps"
+  eval_steps: 200
+  fp16: true
+  per_device_eval_batch_size: 8
+  max_steps: 1000 # <<< Fixed number of steps

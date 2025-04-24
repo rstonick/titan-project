@@ -1,0 +1,108 @@
+# Configuration for H200 Large Run (Experiment 1)
+# Assumes compute_metrics in train_mistral_lora.py is updated for Accuracy/F1
+
+# Model and dataset configuration
+model:
+  name: "mistralai/Mistral-7B-v0.1"
+  # --- MODIFIED for this run ---
+  output_dir: "./output/h200_large_run1_output" # Unique output dir for this run
+  wandb_project: "mistral-lora-triviaqa-h200"   # Specific W&B project for H200 runs
+  wandb_run_name: "H200-LargeRun1-BS60-Len2048-Ep1" # Unique W&B run name (adjust if changing epochs)
+
+# Dataset configuration
+dataset:
+  dataset_name: "trivia_qa"
+  # --- MODIFIED for this run ---
+  subset_size: 10000 # Comment out or remove this line to use the FULL dataset
+
+# LoRA configuration (Using structure from your original file)
+lora:
+  # Basic parameters
+  basic:
+    r: 8
+    alpha: 32
+    dropout: 0.05
+  # Target modules and layers (Assuming these are correct from your original)
+  target_modules:
+    - "q_proj"
+    - "k_proj"
+    - "v_proj"
+    - "o_proj"
+    - "gate_proj"
+    - "up_proj"
+    - "down_proj"
+  # Advanced parameters (Assuming these are correct from your original)
+  advanced:
+    bias: "none"
+    task_type: "CAUSAL_LM"
+    fan_in_fan_out: false
+    modules_to_save: null
+    init_lora_weights: true
+  # Layer-wise configurations (Keep as per your original if desired)
+  rank_pattern: {} # Keep empty if not using specific layer ranks
+  alpha_pattern: {} # Keep empty if not using specific layer alphas
+
+# Training configuration
+training:
+  max_length: 2048 # Keeping sequence length fixed as requested
+  # --- MODIFIED for this run ---
+  batch_size: 60 # Using a value slightly below the max found (64) for stability
+  gradient_accumulation_steps: 1 # No accumulation needed with large batch size
+  num_epochs: 1.0 # Train for 1 full epoch (adjust if you want more/less)
+  learning_rate: 2.0e-4 # Standard learning rate
+  warmup_ratio: 0.03 # Standard warmup
+
+# Quantization configuration (Using structure from your original file)
+quantization:
+  quantization_type: "4bit"
+  use_double_quant: true
+  quant_type: "nf4"
+  compute_dtype: "float16"
+
+# Training arguments (Using structure from your original file)
+trainer:
+  # --- MODIFIED for this run ---
+  logging_steps: 50       # Log metrics every 50 steps (adjust as needed)
+  save_strategy: "steps"  # Save checkpoints based on steps
+  save_steps: 500         # Save a checkpoint every 500 steps (adjust frequency as needed)
+  evaluation_strategy: "no" # Evaluate based on steps
+  #eval_steps: 500         # Evaluate every 500 steps (match save_steps or adjust)
+  fp16: true              # Enable mixed-precision training
+  #per_device_eval_batch_size: 8 # Can likely use a decent eval batch size on H200
+  # max_steps: -1 # Remove or set to -1 if controlling by num_epochs
+
+# --- NOTE: Add any other top-level keys your script might expect ---
+# Example if tokenizer settings were separate:
+# tokenizer:
+#  add_eos_token: false
+#  padding_side: "right"
+
+    # Option B (More Robust: Filter inputs here if needed):
+    # try:
+    #   if valid_labels.size > 0:
+    #       # We need logits corresponding to valid labels
+    #       # This requires careful indexing based on the mask
+    #       # Example (might need adjustment based on exact shapes/logic):
+    #       # valid_logits = logits[mask] # This might not work directly if logits are 3D
+    #       # Need to gather logits corresponding to valid_labels positions
+    #       # Placeholder - requires careful implementation if needed:
+    #       # gathered_logits = gather_valid_logits(logits, mask)
+    #       # perplexity = calculate_perplexity(gathered_logits, valid_labels)
+    #
+    #       # For now, stick with Option A and assume internal handling or check metrics.py
+    #       perplexity = calculate_perplexity(logits, labels) # Revert to Option A logic
+    #       metrics['perplexity'] = perplexity
+    #   else:
+    #      metrics['perplexity'] = np.nan
+    # except Exception as e:
+    #   print(f"Warning: Perplexity calculation failed: {e}")
+    #   metrics['perplexity'] = np.nan
+
+
+    # --- Remove EM and MRR for now ---
+    # These metrics, as implemented in metrics.py, are likely not meaningful
+    # when applied directly to token IDs here. Meaningful EM requires decoding.
+    # em = calculate_exact_match(valid_preds, valid_labels) # Probably incorrect interpretation
+    # mrr = calculate_mrr(valid_preds, valid_labels) # Probably incorrect interpretation
+    # metrics['exact_match'] = em
+    # metrics['mrr'] = mrr

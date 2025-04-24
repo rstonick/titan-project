@@ -1,0 +1,41 @@
+Loading checkpoint shards: 100%|█████████████████████████████████████████████████████| 2/2 [00:07<00:00,  3.51s/it]
+trainable params: 19,922,944 || all params: 7,261,655,040 || trainable%: 0.2744
+Loading 1000 examples from TriviaQA dataset...
+Resolving data files: 100%|███████████████████████████████████████████████████████| 26/26 [00:00<00:00, 206.18it/s]
+Resolving data files: 100%|████████████████████████████████████████████████████| 26/26 [00:00<00:00, 148572.08it/s]
+Loaded 900 training examples and 100 validation examples
+Filter: 100%|███████████████████████████████████████████████████████████| 900/900 [00:00<00:00, 4857.67 examples/s]
+Filter: 100%|███████████████████████████████████████████████████████████| 100/100 [00:00<00:00, 3963.17 examples/s]
+After filtering: 861 training examples and 97 validation examples
+Map: 100%|██████████████████████████████████████████████████████████████| 861/861 [00:00<00:00, 8683.19 examples/s]
+Map: 100%|████████████████████████████████████████████████████████████████| 97/97 [00:00<00:00, 5677.63 examples/s]
+Tokenizing datasets...
+Map: 100%|██████████████████████████████████████████████████████████████| 861/861 [00:00<00:00, 1858.02 examples/s]
+Map: 100%|████████████████████████████████████████████████████████████████| 97/97 [00:00<00:00, 1946.49 examples/s]
+Final training examples: 861
+Final validation examples: 97
+No label_names provided for model class `PeftModelForCausalLM`. Since `PeftModel` hides base models input arguments, if label_names is not given, label_names can't be set automatically within `Trainer`. Note that empty label_names list will be used instead.
+[34m[1mwandb[0m: [33mWARNING[0m The `run_name` is currently set to the same value as `TrainingArguments.output_dir`. If this was not intended, please specify a different run name by setting the `TrainingArguments.run_name` parameter.
+  0%|                                                                                       | 0/81 [00:00<?, ?it/s]`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
+/home/hice1/rstonick3/scratch/titan_env_vm/lib/python3.10/site-packages/torch/_dynamo/eval_frame.py:632: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.5 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+  6%|████▉                                                                          | 5/81 [01:20<20:25, 16.13s/it]Traceback (most recent call last):
+  File "/storage/ice1/0/0/rstonick3/titan-project/train_mistral_lora.py", line 132, in <module>
+    main()
+  File "/storage/ice1/0/0/rstonick3/titan-project/train_mistral_lora.py", line 125, in main
+    trainer.train()
+  File "/home/hice1/rstonick3/scratch/titan_env_vm/lib/python3.10/site-packages/transformers/trainer.py", line 2245, in train
+    return inner_training_loop(
+  File "/home/hice1/rstonick3/scratch/titan_env_vm/lib/python3.10/site-packages/transformers/trainer.py", line 2560, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs, num_items_in_batch)
+  File "/home/hice1/rstonick3/scratch/titan_env_vm/lib/python3.10/site-packages/transformers/trainer.py", line 3782, in training_step
+    self.accelerator.backward(loss, **kwargs)
+  File "/home/hice1/rstonick3/scratch/titan_env_vm/lib/python3.10/site-packages/accelerate/accelerator.py", line 2450, in backward
+    self.scaler.scale(loss).backward(**kwargs)
+  File "/home/hice1/rstonick3/scratch/titan_env_vm/lib/python3.10/site-packages/torch/_tensor.py", line 581, in backward
+    torch.autograd.backward(
+  File "/home/hice1/rstonick3/scratch/titan_env_vm/lib/python3.10/site-packages/torch/autograd/__init__.py", line 347, in backward
+    _engine_run_backward(
+  File "/home/hice1/rstonick3/scratch/titan_env_vm/lib/python3.10/site-packages/torch/autograd/graph.py", line 825, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+KeyboardInterrupt

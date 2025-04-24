@@ -1,0 +1,74 @@
+# Model and dataset configuration
+model:
+  name: "mistralai/Mistral-7B-v0.1"
+  # --- MODIFIED for this run ---
+  output_dir: "./output/h200_test_len_findlimit" # Unique output dir
+  wandb_project: "mistral-lora-triviaqa-h200-tests" # Example project name
+  wandb_run_name: "H200-Interactive-FindMaxLen" # Unique W&B run name
+
+# Dataset configuration
+dataset:
+  dataset_name: "trivia_qa"
+  # --- MODIFIED for this run ---
+  subset_size: 100  # Tiny subset for quick memory test
+
+# LoRA configuration (Using structure from your original file)
+lora:
+  # Basic parameters
+  basic:
+    r: 8
+    alpha: 32
+    dropout: 0.05
+  # Target modules and layers
+  target_modules:
+    - "q_proj"
+    - "k_proj"
+    - "v_proj"
+    - "o_proj"
+    - "gate_proj"
+    - "up_proj"
+    - "down_proj"
+  # Advanced parameters
+  advanced:
+    bias: "none"
+    task_type: "CAUSAL_LM"
+    fan_in_fan_out: false
+    modules_to_save: null
+    init_lora_weights: true
+  # Layer-wise configurations
+  rank_pattern: {}
+  alpha_pattern: {}
+
+# Training configuration
+training:
+  # --- MODIFIED for this run ---
+  max_length: 3072 # *** START HERE & INCREASE (e.g., 4096, 6144?) until OOM ***
+  batch_size: 16 # Moderate, fixed batch size for this test (adjust if needed)
+  gradient_accumulation_steps: 1 # Try 1 first, increase to 2 if needed
+  num_epochs: 1 # Irrelevant due to max_steps below
+  learning_rate: 2.0e-4
+  warmup_ratio: 0.1
+
+# Quantization configuration (Using structure from your original file)
+quantization:
+  quantization_type: "4bit"
+  use_double_quant: true
+  quant_type: "nf4"
+  compute_dtype: "float16"
+
+# Training arguments (Using structure from your original file)
+trainer:
+  logging_steps: 1 # Log frequently
+  save_strategy: "steps"
+  save_steps: 10 # Save once (or never)
+  evaluation_strategy: "steps"
+  eval_steps: 5 # Evaluate frequently
+  fp16: true
+  per_device_eval_batch_size: 8 # May need smaller eval batch size with long sequences
+  # --- MODIFIED for this run ---
+  max_steps: 10 # Run only a few steps to test memory
+
+# Example if tokenizer settings were separate:
+# tokenizer:
+#  add_eos_token: false
+#  padding_side: "right"

@@ -1,0 +1,15 @@
+{"time":"2025-04-23T01:37:41.6228215-04:00","level":"INFO","msg":"stream: starting","core version":"0.19.10","symlink path":"/storage/ice1/0/0/rstonick3/titan-project/wandb/run-20250423_013741-nszrf5cj/logs/debug-core.log"}
+{"time":"2025-04-23T01:37:41.994577439-04:00","level":"INFO","msg":"created new stream","id":"nszrf5cj"}
+{"time":"2025-04-23T01:37:41.994638152-04:00","level":"INFO","msg":"stream: started","id":"nszrf5cj"}
+{"time":"2025-04-23T01:37:41.994657798-04:00","level":"INFO","msg":"sender: started","stream_id":"nszrf5cj"}
+{"time":"2025-04-23T01:37:41.994655465-04:00","level":"INFO","msg":"handler: started","stream_id":"nszrf5cj"}
+{"time":"2025-04-23T01:37:41.994667501-04:00","level":"INFO","msg":"writer: Do: started","stream_id":"nszrf5cj"}
+{"time":"2025-04-23T01:37:42.189334354-04:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-23T01:37:42.52761663-04:00","level":"INFO","msg":"stream: closing","id":"nszrf5cj"}
+{"time":"2025-04-23T01:37:42.527648558-04:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-04-23T01:37:42.527700368-04:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-04-23T01:37:43.103074495-04:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-04-23T01:37:43.204385331-04:00","level":"INFO","msg":"handler: closed","stream_id":"nszrf5cj"}
+{"time":"2025-04-23T01:37:43.204409463-04:00","level":"INFO","msg":"sender: closed","stream_id":"nszrf5cj"}
+{"time":"2025-04-23T01:37:43.204404202-04:00","level":"INFO","msg":"writer: Close: closed","stream_id":"nszrf5cj"}
+{"time":"2025-04-23T01:37:43.204815795-04:00","level":"INFO","msg":"stream: closed","id":"nszrf5cj"}

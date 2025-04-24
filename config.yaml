@@ -1,13 +1,13 @@
 # Model and dataset configuration
 model:
   name: "mistralai/Mistral-7B-v0.1"
-  output_dir: "mistral-7b-triviaqa-lora"
+  output_dir: "mistral-7b-triviaqa-lora-H100-run2-5k-trivia"
   wandb_project: "mistral-lora-triviaqa"
 
 # Dataset configuration
 dataset:
   dataset_name: "trivia_qa"
-  subset_size: 1000  # Default subset size for loading the dataset
+  subset_size: 5000  # Default subset size for loading the dataset
 
 # LoRA configuration
 lora:
@@ -30,7 +30,7 @@ lora:
   # Advanced parameters
   advanced:
     bias: "none"                    # Bias training mode: 'none', 'all', 'lora_only'
-    task_type: "QUESTION_ANS"       # Task type for the model
+    task_type: "CAUSAL_LM"       # Task type for the model
     fan_in_fan_out: false           # Set to true for linear layers where fan_in != fan_out
     modules_to_save: null           # List of modules to save in full besides LoRA
     init_lora_weights: true         # Whether to initialize LoRA weights
@@ -57,8 +57,8 @@ lora:
 # Training configuration
 training:
   max_length: 2048
-  batch_size: 4
-  gradient_accumulation_steps: 4
+  batch_size: 16
+  gradient_accumulation_steps: 2
   learning_rate: 2.0e-4
   num_epochs: 3
   warmup_ratio: 0.03
@@ -76,3 +76,4 @@ trainer:
   save_strategy: "epoch"
   evaluation_strategy: "steps"
   fp16: true
+  per_device_eval_batch_size: 16

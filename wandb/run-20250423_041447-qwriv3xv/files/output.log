@@ -1,0 +1,46 @@
+Loading checkpoint shards: 100%|█████████████████████████████████████████████████████| 2/2 [00:19<00:00,  9.88s/it]
+trainable params: 19,922,944 || all params: 7,261,655,040 || trainable%: 0.2744
+Loading 5000 examples from TriviaQA dataset...
+Resolving data files: 100%|████████████████████████████████████████████████████████| 26/26 [00:00<00:00, 54.45it/s]
+Resolving data files: 100%|████████████████████████████████████████████████████| 26/26 [00:00<00:00, 173098.26it/s]
+Loaded 4500 training examples and 500 validation examples
+Filter: 100%|██████████████████████████████████████████████████████████| 4500/4500 [00:26<00:00, 172.97 examples/s]
+Filter: 100%|███████████████████████████████████████████████████████████| 500/500 [00:00<00:00, 1320.10 examples/s]
+After filtering: 3992 training examples and 443 validation examples
+Map: 100%|████████████████████████████████████████████████████████████| 3992/3992 [00:00<00:00, 9217.45 examples/s]
+Map: 100%|██████████████████████████████████████████████████████████████| 443/443 [00:00<00:00, 8255.66 examples/s]
+Tokenizing datasets...
+Map: 100%|████████████████████████████████████████████████████████████| 3992/3992 [00:01<00:00, 2072.06 examples/s]
+Map: 100%|██████████████████████████████████████████████████████████████| 443/443 [00:00<00:00, 2154.62 examples/s]
+Final training examples: 3992
+Final validation examples: 443
+No label_names provided for model class `PeftModelForCausalLM`. Since `PeftModel` hides base models input arguments, if label_names is not given, label_names can't be set automatically within `Trainer`. Note that empty label_names list will be used instead.
+[34m[1mwandb[0m: [33mWARNING[0m The `run_name` is currently set to the same value as `TrainingArguments.output_dir`. If this was not intended, please specify a different run name by setting the `TrainingArguments.run_name` parameter.
+  0%|                                                                                      | 0/375 [00:00<?, ?it/s]`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
+/home/hice1/rstonick3/scratch/titan_env_vm/lib/python3.10/site-packages/torch/_dynamo/eval_frame.py:632: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.5 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+  3%|██                                                                         | 10/375 [02:41<1:37:38, 16.05s/it]Traceback (most recent call last):
+{'loss': 2.0346, 'grad_norm': 4.54583740234375, 'learning_rate': 0.00013333333333333334, 'epoch': 0.08}
+  File "/storage/ice1/0/0/rstonick3/titan-project/train_mistral_lora.py", line 132, in <module>20<00:52,  1.39s/it]
+    main()
+  File "/storage/ice1/0/0/rstonick3/titan-project/train_mistral_lora.py", line 125, in main
+    trainer.train()
+  File "/home/hice1/rstonick3/scratch/titan_env_vm/lib/python3.10/site-packages/transformers/trainer.py", line 2245, in train
+    return inner_training_loop(
+  File "/home/hice1/rstonick3/scratch/titan_env_vm/lib/python3.10/site-packages/transformers/trainer.py", line 2627, in _inner_training_loop
+    self._maybe_log_save_evaluate(
+  File "/home/hice1/rstonick3/scratch/titan_env_vm/lib/python3.10/site-packages/transformers/trainer.py", line 3096, in _maybe_log_save_evaluate
+    metrics = self._evaluate(trial, ignore_keys_for_eval)
+  File "/home/hice1/rstonick3/scratch/titan_env_vm/lib/python3.10/site-packages/transformers/trainer.py", line 3045, in _evaluate
+    metrics = self.evaluate(ignore_keys=ignore_keys_for_eval)
+  File "/home/hice1/rstonick3/scratch/titan_env_vm/lib/python3.10/site-packages/transformers/trainer.py", line 4154, in evaluate
+    output = eval_loop(
+  File "/home/hice1/rstonick3/scratch/titan_env_vm/lib/python3.10/site-packages/transformers/trainer.py", line 4375, in evaluation_loop
+    all_preds.add(logits)
+  File "/home/hice1/rstonick3/scratch/titan_env_vm/lib/python3.10/site-packages/transformers/trainer_pt_utils.py", line 316, in add
+    self.tensors = nested_concat(self.tensors, tensors, padding_index=self.padding_index)
+  File "/home/hice1/rstonick3/scratch/titan_env_vm/lib/python3.10/site-packages/transformers/trainer_pt_utils.py", line 130, in nested_concat
+    return torch_pad_and_concatenate(tensors, new_tensors, padding_index=padding_index)
+  File "/home/hice1/rstonick3/scratch/titan_env_vm/lib/python3.10/site-packages/transformers/trainer_pt_utils.py", line 88, in torch_pad_and_concatenate
+    return torch.cat((tensor1, tensor2), dim=0)
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 37.11 GiB. GPU 0 has a total capacity of 79.22 GiB of which 36.60 GiB is free. Including non-PyTorch memory, this process has 42.61 GiB memory in use. Of the allocated memory 41.73 GiB is allocated by PyTorch, and 159.01 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

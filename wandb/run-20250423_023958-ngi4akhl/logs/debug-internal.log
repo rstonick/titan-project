@@ -1,0 +1,15 @@
+{"time":"2025-04-23T02:39:58.872190694-04:00","level":"INFO","msg":"stream: starting","core version":"0.19.10","symlink path":"/storage/ice1/0/0/rstonick3/titan-project/wandb/run-20250423_023958-ngi4akhl/logs/debug-core.log"}
+{"time":"2025-04-23T02:39:59.346863263-04:00","level":"INFO","msg":"created new stream","id":"ngi4akhl"}
+{"time":"2025-04-23T02:39:59.346922122-04:00","level":"INFO","msg":"stream: started","id":"ngi4akhl"}
+{"time":"2025-04-23T02:39:59.346934054-04:00","level":"INFO","msg":"handler: started","stream_id":"ngi4akhl"}
+{"time":"2025-04-23T02:39:59.346936221-04:00","level":"INFO","msg":"sender: started","stream_id":"ngi4akhl"}
+{"time":"2025-04-23T02:39:59.346948542-04:00","level":"INFO","msg":"writer: Do: started","stream_id":"ngi4akhl"}
+{"time":"2025-04-23T02:39:59.513654209-04:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-23T02:51:13.302949222-04:00","level":"INFO","msg":"stream: closing","id":"ngi4akhl"}
+{"time":"2025-04-23T02:51:13.302994916-04:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-04-23T02:51:13.3030479-04:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-04-23T02:51:13.732209426-04:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-04-23T02:51:13.948224495-04:00","level":"INFO","msg":"handler: closed","stream_id":"ngi4akhl"}
+{"time":"2025-04-23T02:51:13.948243118-04:00","level":"INFO","msg":"writer: Close: closed","stream_id":"ngi4akhl"}
+{"time":"2025-04-23T02:51:13.948284985-04:00","level":"INFO","msg":"sender: closed","stream_id":"ngi4akhl"}
+{"time":"2025-04-23T02:51:13.948470156-04:00","level":"INFO","msg":"stream: closed","id":"ngi4akhl"}

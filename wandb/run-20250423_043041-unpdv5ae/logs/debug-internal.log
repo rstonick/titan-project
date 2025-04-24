@@ -1,0 +1,15 @@
+{"time":"2025-04-23T04:30:41.213654055-04:00","level":"INFO","msg":"stream: starting","core version":"0.19.10","symlink path":"/storage/ice1/0/0/rstonick3/titan-project/wandb/run-20250423_043041-unpdv5ae/logs/debug-core.log"}
+{"time":"2025-04-23T04:30:41.369673302-04:00","level":"INFO","msg":"created new stream","id":"unpdv5ae"}
+{"time":"2025-04-23T04:30:41.36974132-04:00","level":"INFO","msg":"stream: started","id":"unpdv5ae"}
+{"time":"2025-04-23T04:30:41.36975708-04:00","level":"INFO","msg":"writer: Do: started","stream_id":"unpdv5ae"}
+{"time":"2025-04-23T04:30:41.369762335-04:00","level":"INFO","msg":"sender: started","stream_id":"unpdv5ae"}
+{"time":"2025-04-23T04:30:41.369797122-04:00","level":"INFO","msg":"handler: started","stream_id":"unpdv5ae"}
+{"time":"2025-04-23T04:30:41.484761477-04:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-23T04:32:24.593531474-04:00","level":"INFO","msg":"stream: closing","id":"unpdv5ae"}
+{"time":"2025-04-23T04:32:24.593556765-04:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-04-23T04:32:24.593602804-04:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-04-23T04:32:25.206825722-04:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-04-23T04:32:25.316114798-04:00","level":"INFO","msg":"handler: closed","stream_id":"unpdv5ae"}
+{"time":"2025-04-23T04:32:25.316184683-04:00","level":"INFO","msg":"sender: closed","stream_id":"unpdv5ae"}
+{"time":"2025-04-23T04:32:25.316178349-04:00","level":"INFO","msg":"writer: Close: closed","stream_id":"unpdv5ae"}
+{"time":"2025-04-23T04:32:25.316647108-04:00","level":"INFO","msg":"stream: closed","id":"unpdv5ae"}

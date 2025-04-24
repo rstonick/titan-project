@@ -1,0 +1,99 @@
+config.json: 100%|████████████████████████████████████████████████████████████████| 571/571 [00:00<00:00, 3.44MB/s]
+model.safetensors.index.json: 100%|████████████████████████████████████████████| 25.1k/25.1k [00:00<00:00, 100MB/s]
+model-00002-of-00002.safetensors: 100%|████████████████████████████████████████| 4.54G/4.54G [00:10<00:00, 447MB/s]
+model-00001-of-00002.safetensors: 100%|████████████████████████████████████████| 9.94G/9.94G [00:20<00:00, 493MB/s]
+Fetching 2 files: 100%|██████████████████████████████████████████████████████████████| 2/2 [00:36<00:00, 18.40s/it]
+Loading checkpoint shards: 100%|█████████████████████████████████████████████████████| 2/2 [00:49<00:00, 24.85s/it]
+generation_config.json: 100%|██████████████████████████████████████████████████████| 116/116 [00:00<00:00, 674kB/s]
+trainable params: 19,922,944 || all params: 7,261,655,040 || trainable%: 0.2744
+tokenizer_config.json: 100%|██████████████████████████████████████████████████████| 996/996 [00:00<00:00, 5.72MB/s]
+tokenizer.model: 100%|███████████████████████████████████████████████████████████| 493k/493k [00:00<00:00, 110MB/s]
+tokenizer.json: 100%|█████████████████████████████████████████████████████████| 1.80M/1.80M [00:00<00:00, 29.4MB/s]
+special_tokens_map.json: 100%|████████████████████████████████████████████████████| 414/414 [00:00<00:00, 2.68MB/s]
+Loading 1000 examples from TriviaQA dataset...
+README.md: 100%|███████████████████████████████████████████████████████████████| 26.7k/26.7k [00:00<00:00, 109MB/s]
+Resolving data files: 100%|████████████████████████████████████████████████████████| 26/26 [00:00<00:00, 90.84it/s]
+Resolving data files: 100%|████████████████████████████████████████████████████| 26/26 [00:00<00:00, 136485.49it/s]
+train-00000-of-00026.parquet: 100%|██████████████████████████████████████████████| 308M/308M [00:01<00:00, 277MB/s]
+train-00001-of-00026.parquet: 100%|██████████████████████████████████████████████| 298M/298M [00:01<00:00, 276MB/s]
+train-00002-of-00026.parquet: 100%|██████████████████████████████████████████████| 290M/290M [00:01<00:00, 249MB/s]
+train-00003-of-00026.parquet: 100%|██████████████████████████████████████████████| 444M/444M [00:01<00:00, 327MB/s]
+train-00004-of-00026.parquet: 100%|██████████████████████████████████████████████| 461M/461M [00:01<00:00, 316MB/s]
+train-00005-of-00026.parquet: 100%|██████████████████████████████████████████████| 474M/474M [00:01<00:00, 313MB/s]
+train-00006-of-00026.parquet: 100%|██████████████████████████████████████████████| 404M/404M [00:01<00:00, 309MB/s]
+train-00007-of-00026.parquet: 100%|██████████████████████████████████████████████| 324M/324M [00:01<00:00, 271MB/s]
+train-00008-of-00026.parquet: 100%|██████████████████████████████████████████████| 329M/329M [00:01<00:00, 324MB/s]
+train-00009-of-00026.parquet: 100%|██████████████████████████████████████████████| 336M/336M [00:01<00:00, 255MB/s]
+train-00010-of-00026.parquet: 100%|██████████████████████████████████████████████| 400M/400M [00:01<00:00, 314MB/s]
+train-00011-of-00026.parquet: 100%|██████████████████████████████████████████████| 370M/370M [00:01<00:00, 344MB/s]
+train-00012-of-00026.parquet: 100%|██████████████████████████████████████████████| 341M/341M [00:01<00:00, 335MB/s]
+train-00013-of-00026.parquet: 100%|██████████████████████████████████████████████| 327M/327M [00:01<00:00, 287MB/s]
+train-00014-of-00026.parquet: 100%|██████████████████████████████████████████████| 310M/310M [00:00<00:00, 315MB/s]
+train-00015-of-00026.parquet: 100%|██████████████████████████████████████████████| 157M/157M [00:00<00:00, 249MB/s]
+train-00016-of-00026.parquet: 100%|██████████████████████████████████████████████| 136M/136M [00:00<00:00, 330MB/s]
+train-00017-of-00026.parquet: 100%|██████████████████████████████████████████████| 159M/159M [00:00<00:00, 343MB/s]
+train-00018-of-00026.parquet: 100%|██████████████████████████████████████████████| 200M/200M [00:00<00:00, 319MB/s]
+train-00019-of-00026.parquet: 100%|██████████████████████████████████████████████| 180M/180M [00:00<00:00, 338MB/s]
+train-00020-of-00026.parquet: 100%|██████████████████████████████████████████████| 150M/150M [00:00<00:00, 346MB/s]
+train-00021-of-00026.parquet: 100%|██████████████████████████████████████████████| 153M/153M [00:00<00:00, 348MB/s]
+train-00022-of-00026.parquet: 100%|██████████████████████████████████████████████| 147M/147M [00:00<00:00, 246MB/s]
+train-00023-of-00026.parquet: 100%|██████████████████████████████████████████████| 157M/157M [00:00<00:00, 348MB/s]
+train-00024-of-00026.parquet: 100%|██████████████████████████████████████████████| 154M/154M [00:00<00:00, 331MB/s]
+train-00025-of-00026.parquet: 100%|██████████████████████████████████████████████| 158M/158M [00:00<00:00, 329MB/s]
+Downloading data: 100%|█████████████████████████████████████████████████████████| 26/26 [00:37<00:00,  1.45s/files]
+validation-00000-of-00004.parquet: 100%|█████████████████████████████████████████| 327M/327M [00:01<00:00, 321MB/s]
+validation-00001-of-00004.parquet: 100%|█████████████████████████████████████████| 296M/296M [00:00<00:00, 336MB/s]
+validation-00002-of-00004.parquet: 100%|█████████████████████████████████████████| 184M/184M [00:00<00:00, 328MB/s]
+validation-00003-of-00004.parquet: 100%|█████████████████████████████████████████| 129M/129M [00:00<00:00, 272MB/s]
+test-00000-of-00004.parquet: 100%|███████████████████████████████████████████████| 307M/307M [00:00<00:00, 312MB/s]
+test-00001-of-00004.parquet: 100%|███████████████████████████████████████████████| 288M/288M [00:00<00:00, 332MB/s]
+test-00002-of-00004.parquet: 100%|███████████████████████████████████████████████| 171M/171M [00:00<00:00, 320MB/s]
+test-00003-of-00004.parquet: 100%|███████████████████████████████████████████████| 128M/128M [00:00<00:00, 321MB/s]
+Generating train split:  29%|███████████                           | 40261/138384 [00:26<01:03, 1536.53 examples/s]
+Traceback (most recent call last):
+  File "/home/hice1/rstonick3/scratch/titan_env_vm/lib/python3.10/site-packages/datasets/builder.py", line 1857, in _prepare_split_single
+    num_examples, num_bytes = writer.finalize()
+  File "/home/hice1/rstonick3/scratch/titan_env_vm/lib/python3.10/site-packages/datasets/arrow_writer.py", line 645, in finalize
+    self.stream.close()
+  File "/home/hice1/rstonick3/scratch/titan_env_vm/lib/python3.10/site-packages/fsspec/implementations/local.py", line 440, in close
+    return self.f.close()
+OSError: [Errno 122] Disk quota exceeded
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/hice1/rstonick3/scratch/titan_env_vm/lib/python3.10/site-packages/datasets/builder.py", line 1887, in _prepare_split_single
+    num_examples, num_bytes = writer.finalize()
+  File "/home/hice1/rstonick3/scratch/titan_env_vm/lib/python3.10/site-packages/datasets/arrow_writer.py", line 640, in finalize
+    self._build_writer(self.schema)
+  File "/home/hice1/rstonick3/scratch/titan_env_vm/lib/python3.10/site-packages/datasets/arrow_writer.py", line 442, in _build_writer
+    self.pa_writer = self._WRITER_CLASS(self.stream, schema)
+  File "/home/hice1/rstonick3/scratch/titan_env_vm/lib/python3.10/site-packages/pyarrow/ipc.py", line 85, in __init__
+    self._open(sink, schema, options=options)
+  File "pyarrow/ipc.pxi", line 582, in pyarrow.lib._RecordBatchStreamWriter._open
+  File "pyarrow/io.pxi", line 2214, in pyarrow.lib.get_writer
+  File "pyarrow/io.pxi", line 232, in pyarrow.lib.NativeFile.get_output_stream
+  File "pyarrow/io.pxi", line 246, in pyarrow.lib.NativeFile._assert_writable
+  File "pyarrow/io.pxi", line 237, in pyarrow.lib.NativeFile._assert_open
+ValueError: I/O operation on closed file
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/storage/ice1/0/0/rstonick3/titan-project/train_mistral_lora.py", line 115, in <module>
+    main()
+  File "/storage/ice1/0/0/rstonick3/titan-project/train_mistral_lora.py", line 69, in main
+    tokenized_dataset = prepare_dataset(tokenizer, config)
+  File "/storage/ice1/0/0/rstonick3/titan-project/code/data_preparation.py", line 32, in prepare_dataset
+    train_test_split = load_dataset(
+  File "/home/hice1/rstonick3/scratch/titan_env_vm/lib/python3.10/site-packages/datasets/load.py", line 2084, in load_dataset
+    builder_instance.download_and_prepare(
+  File "/home/hice1/rstonick3/scratch/titan_env_vm/lib/python3.10/site-packages/datasets/builder.py", line 925, in download_and_prepare
+    self._download_and_prepare(
+  File "/home/hice1/rstonick3/scratch/titan_env_vm/lib/python3.10/site-packages/datasets/builder.py", line 1001, in _download_and_prepare
+    self._prepare_split(split_generator, **prepare_split_kwargs)
+  File "/home/hice1/rstonick3/scratch/titan_env_vm/lib/python3.10/site-packages/datasets/builder.py", line 1742, in _prepare_split
+    for job_id, done, content in self._prepare_split_single(
+  File "/home/hice1/rstonick3/scratch/titan_env_vm/lib/python3.10/site-packages/datasets/builder.py", line 1898, in _prepare_split_single
+    raise DatasetGenerationError("An error occurred while generating the dataset") from e
+datasets.exceptions.DatasetGenerationError: An error occurred while generating the dataset

@@ -1,0 +1,44 @@
+Loading checkpoint shards: 100%|█████████████████████████████████████████████████████| 2/2 [00:06<00:00,  3.41s/it]
+trainable params: 19,922,944 || all params: 7,261,655,040 || trainable%: 0.2744
+Loading 1000 examples from TriviaQA dataset...
+Resolving data files: 100%|███████████████████████████████████████████████████████| 26/26 [00:00<00:00, 169.76it/s]
+Resolving data files: 100%|████████████████████████████████████████████████████| 26/26 [00:00<00:00, 168030.67it/s]
+Loaded 900 training examples and 100 validation examples
+Filter: 100%|███████████████████████████████████████████████████████████| 900/900 [00:00<00:00, 4831.09 examples/s]
+Filter: 100%|███████████████████████████████████████████████████████████| 100/100 [00:00<00:00, 4113.27 examples/s]
+After filtering: 862 training examples and 96 validation examples
+Map: 100%|██████████████████████████████████████████████████████████████| 862/862 [00:00<00:00, 7346.63 examples/s]
+Map: 100%|████████████████████████████████████████████████████████████████| 96/96 [00:00<00:00, 5217.95 examples/s]
+Tokenizing datasets...
+Map: 100%|██████████████████████████████████████████████████████████████| 862/862 [00:00<00:00, 3486.92 examples/s]
+Map: 100%|████████████████████████████████████████████████████████████████| 96/96 [00:00<00:00, 2907.18 examples/s]
+Final training examples: 862
+Final validation examples: 96
+No label_names provided for model class `PeftModelForCausalLM`. Since `PeftModel` hides base models input arguments, if label_names is not given, label_names can't be set automatically within `Trainer`. Note that empty label_names list will be used instead.
+[34m[1mwandb[0m: [33mWARNING[0m The `run_name` is currently set to the same value as `TrainingArguments.output_dir`. If this was not intended, please specify a different run name by setting the `TrainingArguments.run_name` parameter.
+  0%|                                                                                       | 0/81 [00:00<?, ?it/s]`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
+/home/hice1/rstonick3/scratch/titan_env_vm/lib/python3.10/site-packages/torch/_dynamo/eval_frame.py:632: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.5 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+ 33%|██████████████████████████                                                    | 27/81 [12:29<23:13, 25.81s/it]/home/hice1/rstonick3/scratch/titan_env_vm/lib/python3.10/site-packages/torch/_dynamo/eval_frame.py:632: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.5 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+{'loss': 2.0146, 'grad_norm': 5.76519775390625, 'learning_rate': 0.0001871794871794872, 'epoch': 0.37}
+  return fn(*args, **kwargs)                                                                                       
+{'eval_loss': 1.5483851432800293, 'eval_perplexity': 27586547712.0, 'eval_runtime': 40.5089, 'eval_samples_per_second': 2.37, 'eval_steps_per_second': 0.296, 'epoch': 0.37}
+{'loss': 1.4463, 'grad_norm': 4.834523677825928, 'learning_rate': 0.00016153846153846155, 'epoch': 0.74}
+{'eval_loss': 1.3742642402648926, 'eval_perplexity': 53105942528.0, 'eval_runtime': 39.0824, 'eval_samples_per_second': 2.456, 'eval_steps_per_second': 0.307, 'epoch': 0.74}
+ 67%|████████████████████████████████████████████████████                          | 54/81 [25:37<12:49, 28.52s/it]/home/hice1/rstonick3/scratch/titan_env_vm/lib/python3.10/site-packages/torch/_dynamo/eval_frame.py:632: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.5 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+{'loss': 1.2105, 'grad_norm': 2.446251153945923, 'learning_rate': 0.0001358974358974359, 'epoch': 1.11}
+  return fn(*args, **kwargs)                                                                                       
+{'eval_loss': 1.387482762336731, 'eval_perplexity': 88416141312.0, 'eval_runtime': 39.0789, 'eval_samples_per_second': 2.457, 'eval_steps_per_second': 0.307, 'epoch': 1.11}
+{'loss': 0.9691, 'grad_norm': 3.526228427886963, 'learning_rate': 0.00011025641025641027, 'epoch': 1.48}
+{'eval_loss': 1.4337323904037476, 'eval_perplexity': 109964320768.0, 'eval_runtime': 39.0464, 'eval_samples_per_second': 2.459, 'eval_steps_per_second': 0.307, 'epoch': 1.48}
+{'loss': 0.9332, 'grad_norm': 2.993232488632202, 'learning_rate': 8.461538461538461e-05, 'epoch': 1.85}
+{'eval_loss': 1.4189386367797852, 'eval_perplexity': 113933344768.0, 'eval_runtime': 39.0558, 'eval_samples_per_second': 2.458, 'eval_steps_per_second': 0.307, 'epoch': 1.85}
+100%|██████████████████████████████████████████████████████████████████████████████| 81/81 [38:44<00:00, 28.70s/it]
+{'loss': 0.7926, 'grad_norm': 5.805351734161377, 'learning_rate': 5.897435897435898e-05, 'epoch': 2.22}
+                                                                                                                   
+{'eval_loss': 1.6609216928482056, 'eval_perplexity': 117722300416.0, 'eval_runtime': 39.0134, 'eval_samples_per_second': 2.461, 'eval_steps_per_second': 0.308, 'epoch': 2.22}
+{'loss': 0.6342, 'grad_norm': 3.1591997146606445, 'learning_rate': 3.3333333333333335e-05, 'epoch': 2.59}
+{'eval_loss': 1.5328550338745117, 'eval_perplexity': 106767450112.0, 'eval_runtime': 39.0075, 'eval_samples_per_second': 2.461, 'eval_steps_per_second': 0.308, 'epoch': 2.59}
+{'loss': 0.618, 'grad_norm': 2.791707754135132, 'learning_rate': 7.692307692307694e-06, 'epoch': 2.96}
+{'eval_loss': 1.5323587656021118, 'eval_perplexity': 94135189504.0, 'eval_runtime': 39.0326, 'eval_samples_per_second': 2.459, 'eval_steps_per_second': 0.307, 'epoch': 2.96}
+{'train_runtime': 2324.6949, 'train_samples_per_second': 1.112, 'train_steps_per_second': 0.035, 'train_loss': 1.0710061560442419, 'epoch': 3.0}

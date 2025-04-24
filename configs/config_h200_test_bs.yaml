@@ -1,0 +1,77 @@
+# Model and dataset configuration
+model:
+  name: "mistralai/Mistral-7B-v0.1"
+  # --- MODIFIED for this run ---
+  output_dir: "./output/h200_test_bs_findlimit" # Unique output dir
+  wandb_project: "mistral-lora-triviaqa-h200-tests" # Example project name
+  # --- Keep W&B name separate if script expects it under model ---
+  # If script expects wandb name elsewhere, adjust accordingly
+  wandb_run_name: "H200-Interactive-FindMaxBS" # Unique W&B run name
+
+# Dataset configuration
+dataset:
+  dataset_name: "trivia_qa"
+  # --- MODIFIED for this run ---
+  subset_size: 100  # Tiny subset for quick memory test
+
+# LoRA configuration (Using structure from your original file)
+lora:
+  # Basic parameters
+  basic:
+    r: 8
+    alpha: 32
+    dropout: 0.05
+  # Target modules and layers (Assuming these are correct from your original)
+  target_modules:
+    - "q_proj"
+    - "k_proj"
+    - "v_proj"
+    - "o_proj"
+    - "gate_proj"
+    - "up_proj"
+    - "down_proj"
+  # Advanced parameters (Assuming these are correct from your original)
+  advanced:
+    bias: "none"
+    task_type: "CAUSAL_LM"
+    fan_in_fan_out: false
+    modules_to_save: null
+    init_lora_weights: true
+  # Layer-wise configurations (Keep as per your original if desired)
+  rank_pattern: {} # Keep empty if not using specific layer ranks
+  alpha_pattern: {} # Keep empty if not using specific layer alphas
+
+# Training configuration
+training:
+  max_length: 2048 # Fixed sequence length for this test
+  # --- MODIFIED for this run ---
+  batch_size: 64 # *** START HERE & INCREASE (e.g., 48, 64, 96?) until OOM ***
+  gradient_accumulation_steps: 1 # Try to avoid accumulation
+  num_epochs: 1 # Irrelevant due to max_steps below
+  learning_rate: 2.0e-4 # Keep learning rate
+  warmup_ratio: 0.1 # Keep warmup ratio
+
+# Quantization configuration (Using structure from your original file)
+quantization:
+  quantization_type: "4bit"
+  use_double_quant: true
+  quant_type: "nf4"
+  compute_dtype: "float16"
+
+# Training arguments (Using structure from your original file)
+trainer:
+  logging_steps: 1 # Log frequently
+  save_strategy: "steps" # Changed from epoch for short run
+  save_steps: 10 # Save once (or never)
+  evaluation_strategy: "steps"
+  eval_steps: 5 # Evaluate frequently
+  fp16: true
+  per_device_eval_batch_size: 16 # Keep eval batch size manageable
+  # --- MODIFIED for this run ---
+  max_steps: 10 # Run only a few steps to test memory
+
+# --- NOTE: Add any other top-level keys your script might expect, like 'tokenizer' if used ---
+# Example if tokenizer settings were separate:
+# tokenizer:
+#  add_eos_token: false
+#  padding_side: "right"

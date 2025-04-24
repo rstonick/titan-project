@@ -4,6 +4,8 @@ import torch
 import yaml
 import wandb
 
+import numpy as np
+
 from datasets import load_dataset, DatasetDict
 from transformers import (
     AutoModelForCausalLM,
@@ -31,24 +33,82 @@ def parse_arguments():
     return parser.parse_args()
 
 
-def compute_metrics(pred):
-    labels = pred.label_ids
-    preds = pred.predictions.argmax(-1)
-    
-    # Calculate metrics
-    acc = calculate_accuracy(preds, labels)
-    f1 = calculate_f1(preds, labels)
-    em = calculate_exact_match(preds, labels)
-    mrr = calculate_mrr(preds, labels)
-    perplexity = calculate_perplexity(pred.predictions, labels)
-    
-    return {
-        'accuracy': acc,
-        'f1': f1,
-        'exact_match': em,
-        'mrr': mrr,
-        'perplexity': perplexity
-    }
+def compute_metrics(eval_preds):
+    logits, labels = eval_preds.predictions, eval_preds.label_ids
+
+    # Get predicted token IDs (shape: batch_size, seq_len)
+    preds = np.argmax(logits, axis=-1)
+
+    # --- IMPORTANT: Filter out padding tokens (-100) ---
+    # Create a mask for non-padding labels
+    mask = labels != -100
+
+    # Apply the mask to flatten predictions and labels into 1D arrays
+    # Only consider positions where the label is not -100
+    valid_preds = preds[mask]
+    valid_labels = labels[mask]
+
+    metrics = {}
+
+    # --- Calculate Accuracy and F1 on valid (non-padded) tokens ---
+    if valid_labels.size > 0: # Avoid division by zero if mask is all False
+        try:
+            acc = calculate_accuracy(valid_preds, valid_labels)
+            f1 = calculate_f1(valid_preds, valid_labels)
+            metrics['accuracy'] = acc
+            metrics['f1'] = f1
+        except Exception as e:
+            print(f"Warning: Accuracy/F1 calculation failed: {e}")
+            # Optionally set to NaN or skip if calculation fails
+            metrics['accuracy'] = np.nan
+            metrics['f1'] = np.nan
+    else:
+        print("Warning: No valid labels found after masking padding.")
+        metrics['accuracy'] = 0.0 # Or np.nan
+        metrics['f1'] = 0.0 # Or np.nan
+
+    # --- Calculate Perplexity ---
+    # Ensure calculate_perplexity handles padding correctly OR pass filtered inputs
+    # Option A (Simpler, if calculate_perplexity handles internal masking):
+    try:
+        # NOTE: Verify if calculate_perplexity in metrics.py correctly ignores labels == -100
+        perplexity = calculate_perplexity(logits, labels)
+        metrics['perplexity'] = perplexity
+    except Exception as e:
+        print(f"Warning: Perplexity calculation failed: {e}")
+        metrics['perplexity'] = np.nan
+
+    # Option B (More Robust: Filter inputs here if needed):
+    # try:
+    #   if valid_labels.size > 0:
+    #       # We need logits corresponding to valid labels
+    #       # This requires careful indexing based on the mask
+    #       # Example (might need adjustment based on exact shapes/logic):
+    #       # valid_logits = logits[mask] # This might not work directly if logits are 3D
+    #       # Need to gather logits corresponding to valid_labels positions
+    #       # Placeholder - requires careful implementation if needed:
+    #       # gathered_logits = gather_valid_logits(logits, mask)
+    #       # perplexity = calculate_perplexity(gathered_logits, valid_labels)
+    #
+    #       # For now, stick with Option A and assume internal handling or check metrics.py
+    #       perplexity = calculate_perplexity(logits, labels) # Revert to Option A logic
+    #       metrics['perplexity'] = perplexity
+    #   else:
+    #      metrics['perplexity'] = np.nan
+    # except Exception as e:
+    #   print(f"Warning: Perplexity calculation failed: {e}")
+    #   metrics['perplexity'] = np.nan
+
+
+    # --- Remove EM and MRR for now ---
+    # These metrics, as implemented in metrics.py, are likely not meaningful
+    # when applied directly to token IDs here. Meaningful EM requires decoding.
+    # em = calculate_exact_match(valid_preds, valid_labels) # Probably incorrect interpretation
+    # mrr = calculate_mrr(valid_preds, valid_labels) # Probably incorrect interpretation
+    # metrics['exact_match'] = em
+    # metrics['mrr'] = mrr
+
+    return metrics
 
 
 def main():
@@ -94,6 +154,7 @@ def main():
     )
 
     # Initialize Trainer
+    #model = torch.compile(model)
     trainer = Trainer(
         model=model,
         args=training_args,

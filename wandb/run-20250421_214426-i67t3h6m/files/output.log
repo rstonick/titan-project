@@ -1,0 +1,81 @@
+config.json: 100%|████████████████████████████████████████████| 571/571 [00:00<?, ?B/s]
+C:\Users\Ryan\anaconda3\envs\titan_env\lib\site-packages\huggingface_hub\file_download.py:144: UserWarning: `huggingface_hub` cache-system uses symlinks by default to efficiently store duplicated files but your machine does not support them in C:\Users\Ryan\.cache\huggingface\hub\models--mistralai--Mistral-7B-v0.1. Caching files will still work but in a degraded version that might require more space on your disk. This warning can be disabled by setting the `HF_HUB_DISABLE_SYMLINKS_WARNING` environment variable. For more details, see https://huggingface.co/docs/huggingface_hub/how-to-cache#limitations.
+To support symlinks on Windows, you either need to activate Developer Mode or to run Python as an administrator. In order to activate developer mode, see this article: https://docs.microsoft.com/en-us/windows/apps/get-started/enable-your-device-for-development
+  warnings.warn(message)
+model.safetensors.index.json: 100%|███████████████| 25.1k/25.1k [00:00<00:00, 23.4MB/s]
+model-00002-of-00002.safetensors: 100%|███████████| 4.54G/4.54G [01:00<00:00, 74.8MB/s]
+model-00001-of-00002.safetensors: 100%|███████████| 9.94G/9.94G [03:10<00:00, 52.1MB/s]
+Fetching 2 files: 100%|██████████████████████████████████| 2/2 [03:11<00:00, 95.53s/it]
+Loading checkpoint shards: 100%|█████████████████████████| 2/2 [00:10<00:00,  5.12s/it]
+generation_config.json: 100%|██████████████████████████| 116/116 [00:00<00:00, 206kB/s]
+trainable params: 19,922,944 || all params: 7,261,655,040 || trainable%: 0.2744
+tokenizer_config.json: 100%|██████████████████████████| 996/996 [00:00<00:00, 2.02MB/s]
+tokenizer.model: 100%|██████████████████████████████| 493k/493k [00:00<00:00, 7.16MB/s]
+tokenizer.json: 100%|█████████████████████████████| 1.80M/1.80M [00:00<00:00, 6.16MB/s]
+special_tokens_map.json: 100%|█████████████████████████| 414/414 [00:00<00:00, 661kB/s]
+Loading 1000 examples from TriviaQA dataset...
+README.md: 100%|███████████████████████████████████| 26.7k/26.7k [00:00<00:00, 116MB/s]
+C:\Users\Ryan\anaconda3\envs\titan_env\lib\site-packages\huggingface_hub\file_download.py:144: UserWarning: `huggingface_hub` cache-system uses symlinks by default to efficiently store duplicated files but your machine does not support them in C:\Users\Ryan\.cache\huggingface\hub\datasets--trivia_qa. Caching files will still work but in a degraded version that might require more space on your disk. This warning can be disabled by setting the `HF_HUB_DISABLE_SYMLINKS_WARNING` environment variable. For more details, see https://huggingface.co/docs/huggingface_hub/how-to-cache#limitations.
+To support symlinks on Windows, you either need to activate Developer Mode or to run Python as an administrator. In order to activate developer mode, see this article: https://docs.microsoft.com/en-us/windows/apps/get-started/enable-your-device-for-development
+  warnings.warn(message)
+Resolving data files: 100%|████████████████████████████| 26/26 [00:00<00:00, 45.56it/s]
+Resolving data files: 100%|████████████████████████████| 26/26 [00:00<00:00, 85.04it/s]
+train-00000-of-00026.parquet: 100%|█████████████████| 308M/308M [00:03<00:00, 78.3MB/s]
+train-00001-of-00026.parquet: 100%|█████████████████| 298M/298M [00:03<00:00, 74.9MB/s]
+train-00002-of-00026.parquet: 100%|█████████████████| 290M/290M [00:03<00:00, 74.9MB/s]
+train-00003-of-00026.parquet: 100%|█████████████████| 444M/444M [00:05<00:00, 75.9MB/s]
+train-00004-of-00026.parquet: 100%|█████████████████| 461M/461M [00:05<00:00, 79.5MB/s]
+train-00005-of-00026.parquet: 100%|█████████████████| 474M/474M [00:06<00:00, 76.3MB/s]
+train-00006-of-00026.parquet: 100%|█████████████████| 404M/404M [00:05<00:00, 73.0MB/s]
+train-00007-of-00026.parquet: 100%|█████████████████| 324M/324M [00:05<00:00, 59.1MB/s]
+train-00008-of-00026.parquet: 100%|█████████████████| 329M/329M [00:04<00:00, 69.2MB/s]
+train-00009-of-00026.parquet: 100%|█████████████████| 336M/336M [00:04<00:00, 70.9MB/s]
+train-00010-of-00026.parquet: 100%|█████████████████| 400M/400M [00:06<00:00, 65.9MB/s]
+train-00011-of-00026.parquet: 100%|█████████████████| 370M/370M [00:05<00:00, 68.3MB/s]
+train-00012-of-00026.parquet: 100%|█████████████████| 341M/341M [00:05<00:00, 65.1MB/s]
+train-00013-of-00026.parquet: 100%|█████████████████| 327M/327M [00:04<00:00, 73.9MB/s]
+train-00014-of-00026.parquet: 100%|█████████████████| 310M/310M [00:05<00:00, 61.0MB/s]
+train-00015-of-00026.parquet: 100%|█████████████████| 157M/157M [00:02<00:00, 59.6MB/s]
+train-00016-of-00026.parquet: 100%|█████████████████| 136M/136M [00:01<00:00, 77.8MB/s]
+train-00017-of-00026.parquet: 100%|█████████████████| 159M/159M [00:02<00:00, 55.6MB/s]
+train-00018-of-00026.parquet: 100%|█████████████████| 200M/200M [00:02<00:00, 68.5MB/s]
+train-00019-of-00026.parquet: 100%|█████████████████| 180M/180M [00:02<00:00, 66.0MB/s]
+train-00020-of-00026.parquet: 100%|█████████████████| 150M/150M [00:02<00:00, 67.5MB/s]
+train-00021-of-00026.parquet: 100%|█████████████████| 153M/153M [00:02<00:00, 64.5MB/s]
+train-00022-of-00026.parquet: 100%|█████████████████| 147M/147M [00:01<00:00, 76.3MB/s]
+train-00023-of-00026.parquet: 100%|█████████████████| 157M/157M [00:02<00:00, 77.3MB/s]
+train-00024-of-00026.parquet: 100%|█████████████████| 154M/154M [00:02<00:00, 60.3MB/s]
+train-00025-of-00026.parquet: 100%|█████████████████| 158M/158M [00:02<00:00, 75.0MB/s]
+Downloading data: 100%|█████████████████████████████| 26/26 [01:50<00:00,  4.25s/files]
+validation-00000-of-00004.parquet: 100%|████████████| 327M/327M [00:04<00:00, 70.8MB/s]
+validation-00001-of-00004.parquet: 100%|████████████| 296M/296M [00:04<00:00, 72.3MB/s]
+validation-00002-of-00004.parquet: 100%|████████████| 184M/184M [00:02<00:00, 64.9MB/s]
+validation-00003-of-00004.parquet: 100%|████████████| 129M/129M [00:01<00:00, 69.3MB/s]
+test-00000-of-00004.parquet: 100%|██████████████████| 307M/307M [00:04<00:00, 73.3MB/s]
+test-00001-of-00004.parquet: 100%|██████████████████| 288M/288M [00:04<00:00, 68.2MB/s]
+test-00002-of-00004.parquet: 100%|██████████████████| 171M/171M [00:02<00:00, 70.6MB/s]
+test-00003-of-00004.parquet: 100%|██████████████████| 128M/128M [00:01<00:00, 76.5MB/s]
+Generating train split: 100%|█████████| 138384/138384 [00:18<00:00, 7318.35 examples/s]
+Generating validation split: 100%|██████| 17944/17944 [00:03<00:00, 4939.23 examples/s]
+Generating test split: 100%|████████████| 17210/17210 [00:03<00:00, 4976.77 examples/s]
+Loaded 900 training examples and 100 validation examples
+Filter: 100%|███████████████████████████████| 900/900 [00:00<00:00, 5172.13 examples/s]
+Filter: 100%|███████████████████████████████| 100/100 [00:00<00:00, 3533.77 examples/s]
+After filtering: 861 training examples and 97 validation examples
+Map: 100%|█████████████████████████████████| 861/861 [00:00<00:00, 11023.86 examples/s]
+Map: 100%|████████████████████████████████████| 97/97 [00:00<00:00, 4725.89 examples/s]
+Tokenizing datasets...
+Map: 100%|██████████████████████████████████| 861/861 [00:00<00:00, 2588.20 examples/s]
+Map: 100%|████████████████████████████████████| 97/97 [00:00<00:00, 2140.15 examples/s]
+Final training examples: 861
+Final validation examples: 97
+Traceback (most recent call last):
+  File "C:\Users\Ryan\Desktop\2025 Spring\CS 7643 - Deep Learning\Final project\Code\titan-project\train_mistral_lora.py", line 115, in <module>
+    main()
+  File "C:\Users\Ryan\Desktop\2025 Spring\CS 7643 - Deep Learning\Final project\Code\titan-project\train_mistral_lora.py", line 98, in main
+    trainer = Trainer(
+  File "C:\Users\Ryan\anaconda3\envs\titan_env\lib\site-packages\transformers\utils\deprecation.py", line 172, in wrapped_func
+    return func(*args, **kwargs)
+  File "C:\Users\Ryan\anaconda3\envs\titan_env\lib\site-packages\transformers\trainer.py", line 554, in __init__
+    raise ValueError(
+ValueError: You cannot fine-tune quantized model with `torch.compile()` make sure to pass a non-compiled model when fine-tuning a quantized model with PEFT

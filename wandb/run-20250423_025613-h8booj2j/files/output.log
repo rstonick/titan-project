@@ -1,0 +1,50 @@
+Loading checkpoint shards: 100%|█████████████████████████████████████████████████████| 2/2 [00:06<00:00,  3.38s/it]
+trainable params: 19,922,944 || all params: 7,261,655,040 || trainable%: 0.2744
+Loading 1000 examples from TriviaQA dataset...
+Resolving data files: 100%|████████████████████████████████████████████████████████| 26/26 [00:02<00:00, 10.69it/s]
+Resolving data files: 100%|████████████████████████████████████████████████████| 26/26 [00:00<00:00, 170127.78it/s]
+Loaded 900 training examples and 100 validation examples
+Filter: 100%|███████████████████████████████████████████████████████████| 900/900 [00:00<00:00, 4879.12 examples/s]
+Filter: 100%|███████████████████████████████████████████████████████████| 100/100 [00:00<00:00, 3699.95 examples/s]
+After filtering: 863 training examples and 95 validation examples
+Map: 100%|██████████████████████████████████████████████████████████████| 863/863 [00:00<00:00, 7836.80 examples/s]
+Map: 100%|████████████████████████████████████████████████████████████████| 95/95 [00:00<00:00, 5225.14 examples/s]
+Tokenizing datasets...
+Map: 100%|██████████████████████████████████████████████████████████████| 863/863 [00:00<00:00, 3526.10 examples/s]
+Map: 100%|████████████████████████████████████████████████████████████████| 95/95 [00:00<00:00, 2922.20 examples/s]
+Final training examples: 863
+Final validation examples: 95
+No label_names provided for model class `PeftModelForCausalLM`. Since `PeftModel` hides base models input arguments, if label_names is not given, label_names can't be set automatically within `Trainer`. Note that empty label_names list will be used instead.
+[34m[1mwandb[0m: [33mWARNING[0m The `run_name` is currently set to the same value as `TrainingArguments.output_dir`. If this was not intended, please specify a different run name by setting the `TrainingArguments.run_name` parameter.
+  0%|                                                                                       | 0/81 [00:00<?, ?it/s]`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
+/home/hice1/rstonick3/scratch/titan_env_vm/lib/python3.10/site-packages/torch/_dynamo/eval_frame.py:632: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.5 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+ 12%|█████████▋                                                                    | 10/81 [04:08<29:26, 24.88s/it]Traceback (most recent call last):
+{'loss': 1.8945, 'grad_norm': 10.963706016540527, 'learning_rate': 0.00018461538461538463, 'epoch': 0.37}
+  File "/storage/ice1/0/0/rstonick3/titan-project/train_mistral_lora.py", line 115, in <module>19<00:00,  1.71s/it]
+    main()
+  File "/storage/ice1/0/0/rstonick3/titan-project/train_mistral_lora.py", line 108, in main
+    trainer.train()
+  File "/home/hice1/rstonick3/scratch/titan_env_vm/lib/python3.10/site-packages/transformers/trainer.py", line 2245, in train
+    return inner_training_loop(
+  File "/home/hice1/rstonick3/scratch/titan_env_vm/lib/python3.10/site-packages/transformers/trainer.py", line 2627, in _inner_training_loop
+    self._maybe_log_save_evaluate(
+  File "/home/hice1/rstonick3/scratch/titan_env_vm/lib/python3.10/site-packages/transformers/trainer.py", line 3096, in _maybe_log_save_evaluate
+    metrics = self._evaluate(trial, ignore_keys_for_eval)
+  File "/home/hice1/rstonick3/scratch/titan_env_vm/lib/python3.10/site-packages/transformers/trainer.py", line 3045, in _evaluate
+    metrics = self.evaluate(ignore_keys=ignore_keys_for_eval)
+  File "/home/hice1/rstonick3/scratch/titan_env_vm/lib/python3.10/site-packages/transformers/trainer.py", line 4154, in evaluate
+    output = eval_loop(
+  File "/home/hice1/rstonick3/scratch/titan_env_vm/lib/python3.10/site-packages/transformers/trainer.py", line 4443, in evaluation_loop
+    metrics = self.compute_metrics(
+  File "/storage/ice1/0/0/rstonick3/titan-project/train_mistral_lora.py", line 39, in compute_metrics
+    acc = calculate_accuracy(preds, labels)
+  File "/storage/ice1/0/0/rstonick3/titan-project/code/metrics.py", line 6, in calculate_accuracy
+    return accuracy_score(labels, predictions)
+  File "/home/hice1/rstonick3/scratch/titan_env_vm/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 216, in wrapper
+    return func(*args, **kwargs)
+  File "/home/hice1/rstonick3/scratch/titan_env_vm/lib/python3.10/site-packages/sklearn/metrics/_classification.py", line 227, in accuracy_score
+    y_type, y_true, y_pred = _check_targets(y_true, y_pred)
+  File "/home/hice1/rstonick3/scratch/titan_env_vm/lib/python3.10/site-packages/sklearn/metrics/_classification.py", line 118, in _check_targets
+    raise ValueError("{0} is not supported".format(y_type))
+ValueError: multiclass-multioutput is not supported

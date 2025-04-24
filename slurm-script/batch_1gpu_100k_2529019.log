@@ -1,0 +1,22 @@
+---------------------------------------
+Begin Slurm Prolog: Apr-24-2025 19:00:28
+Job ID:    2529019
+User ID:   rstonick3
+Account:   coc
+Job name:  batch_1gpu_100k
+Partition: ice-gpu
+QOS:       coc-ice
+---------------------------------------
+Job started on atl1-1-03-017-23-0.pace.gatech.edu at Thu Apr 24 07:00:28 PM EDT 2025
+Job ID: 2529019
+Requesting 1 GPU.
+Loading modules...
+/usr/local/pace-apps/lmod/lmod/init/bash: line 145: conda: command not found
+Modules loaded.
+Environment variables set.
+Activating Conda environment: /home/hice1/rstonick3/scratch/titan_env_vm
+Conda environment activated.
+Changing to directory: /home/hice1/rstonick3/scratch/titan-project
+Running training script with config: configs/config_batch_1gpu_100k.yaml
+/home/hice1/rstonick3/scratch/titan_env_vm/lib/python3.10/site-packages/transformers/utils/hub.py:105: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(

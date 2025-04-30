@@ -1,0 +1,64 @@
+# Configuration for Run 21: FFN LoRA on middle layers (10-21)
+
+wandb:
+  project: "20K-Shima-Table" # Or a new project name for advanced experiments
+
+model:
+  name: "mistralai/Mistral-7B-v0.1"
+  # MODIFIED output directory path for run_21
+  output_dir: "/home/hice1/rstonick3/scratch/titan-project/final_outputs/run_21_ffn_layers_10_21"
+  # MODIFIED wandb run name for run_21
+  wandb_run_name: "run_21_ffn_layers_10_21"
+
+quantization:
+  load_in_4bit: True
+  use_double_quant: True
+  quant_type: "nf4"
+  compute_dtype: "bfloat16"
+
+lora:
+  basic:
+    r: 32 # Base rank from run 19
+    alpha: 32 # Base alpha from run 19
+    dropout: 0.05
+  target_modules:
+    # Target FFN modules
+    - "gate_proj"
+    - "up_proj"
+    - "down_proj"
+  # NEW: Specify target layer range (inclusive). Script needs to handle this.
+  target_layer_range: [10, 21] # Middle layers
+
+  advanced:
+    bias: "none"
+    task_type: "CAUSAL_LM"
+    fan_in_fan_out: False
+    modules_to_save: null
+    init_lora_weights: True
+  rank_pattern: {}
+  alpha_pattern: {}
+
+dataset:
+  dataset_name: "trivia_qa"
+  dataset_config: "rc.nocontext"
+  subset_size: 20000
+
+training:
+  batch_size: 96 # Per-device batch size (Effective BS = 1 * 96 = 96)
+  gradient_accumulation_steps: 1
+  num_epochs: 3
+  learning_rate: 5.6e-5 # Adjusted for 1 GPU (was 1.12e-4)
+  warmup_ratio: 0.1
+  max_length: 1024
+
+trainer:
+  logging_steps: 30 # Adjusted from 20
+  save_strategy: "epoch" # Changed from "steps"
+  # save_steps: 100 # Commented out as strategy is now "epoch"
+  evaluation_strategy: "no"
+  dataloader_num_workers: 8
+  optim: "paged_adamw_8bit"
+  lr_scheduler_type: "cosine"
+  fp16: False
+  bf16: True
+  weight_decay: 0.0

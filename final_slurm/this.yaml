@@ -1,0 +1,73 @@
+# Configuration optimized for TriviaQA performance with Mistral-7B LoRA
+
+wandb:
+  project: "Mistral-7B-LoRA-TriviaQA-Optimized"
+  # Consider adding entity: "your_wandb_entity" if needed
+
+model:
+  name: "mistralai/Mistral-7B-v0.1"
+  output_dir: "/home/hice1/rstonick3/scratch/titan-project/final_outputs/mistral_lora_triviaqa_optimized_run" # Suggest a descriptive output dir
+  wandb_run_name: "mistral_lora_triviaqa_r32_bs64_lr1e4" # Descriptive run name
+
+quantization:
+  load_in_4bit: True
+  bnb_4bit_use_double_quant: True # Script uses this key based on prepare_model, adjust if needed
+  bnb_4bit_quant_type: "nf4"      # Script uses this key
+  bnb_4bit_compute_dtype: "bfloat16" # Script uses this key (torch.bfloat16)
+
+lora:
+  basic: # Assuming script maps these to LoraConfig
+    r: 32             # Increased rank for potentially better adaptation
+    alpha: 64         # Standard practice: alpha = 2 * r
+    dropout: 0.1      # Slightly increased dropout
+  target_modules:     # Target both MLP and Attention layers
+    - "q_proj"
+    - "k_proj"
+    - "v_proj"
+    - "o_proj"
+    - "gate_proj"
+    - "up_proj"
+    - "down_proj"
+  advanced: # Assuming script maps these to LoraConfig
+    bias: "none"
+    task_type: "CAUSAL_LM"
+    # Other PEFT config args if your script supports them (e.g., modules_to_save)
+
+dataset:
+  local_path: /home/hice1/rstonick3/scratch/triviaqa_dataset # Path to the root dir containing qa/
+  train_files:
+    - qa/wikipedia-train.json
+    - qa/web-train.json # Include both training sets
+  validation_files:
+    - qa/wikipedia-dev.json
+    - qa/web-dev.json   # Include both dev sets
+  # subset_size: null # Remove or set to null/very large number to use the full dataset
+  prompt_format: "Question: {question}\\nAnswer: {answer_value}" # Ensure 'answer_value' is the correct column name post-processing
+
+training:
+  batch_size: 4        # Per-device batch size (adjust based on GPU memory)
+  gradient_accumulation_steps: 16 # Effective batch size = 4 * num_gpus * 16 = 64 (adjust if using multiple GPUs)
+  num_epochs: 3
+  learning_rate: 1e-4   # Common LR for LoRA
+  warmup_ratio: 0.05    # Slightly lower warmup
+  max_length: 512       # Sequence length
+
+trainer: # Corresponds to Accelerator/TrainingArguments-like settings in your script
+  logging_steps: 20
+  save_strategy: "steps"
+  save_steps: 200       # Save potentially best models more frequently
+  evaluation_strategy: "steps"
+  eval_steps: 200       # Evaluate frequently to find best checkpoint
+  load_best_model_at_end: True
+  metric_for_best_model: "f1" # Optimize for F1 score
+  greater_is_better: True     # F1 score is better when higher
+  per_device_eval_batch_size: 32 # Can often use larger batch size for eval
+  dataloader_num_workers: 30     # Adjust based on system cores/IO
+  optim: "paged_adamw_8bit"   # Use paged optimizer
+  lr_scheduler_type: "cosine"
+  fp16: False             # Use bf16 instead if hardware supports it
+  bf16: True              # Enable BrainFloat16 for speed/memory if supported
+  weight_decay: 0.01      # Add slight weight decay
+  save_total_limit: 1     # Keep only the single best checkpoint based on F1
+
+# seed: 42 # Optional: uncomment and set for reproducibility

@@ -1,0 +1,66 @@
+# Configuration for 25k subset, 3 epochs, multi-GPU batch job
+# Paths updated for final_configs and final_outputs directories
+
+wandb:
+  project: "20K-Shima-Table" # Adjusted project name
+
+model:
+  name: "mistralai/Mistral-7B-v0.1"
+  # MODIFIED output directory path for run_6_qv
+  output_dir: "/home/hice1/rstonick3/scratch/titan-project/final_outputs/run_6_qv"
+  wandb_run_name: "run_6_qv" # Updated run name
+
+quantization:
+  load_in_4bit: True
+  use_double_quant: True
+  quant_type: "nf4"
+  compute_dtype: "bfloat16"
+
+lora:
+  basic:
+    r: 8 # Updated for run 6
+    alpha: 32 # Updated for run 6
+    dropout: 0.05
+  target_modules:
+    - "q_proj" # Updated for run 6
+    - "v_proj" # Updated for run 6
+  # Removed other target modules
+
+  advanced:
+    bias: "none"
+    task_type: "CAUSAL_LM"
+    fan_in_fan_out: False
+    modules_to_save: null
+    init_lora_weights: True
+  rank_pattern: {} # Ensure empty for run 6
+  alpha_pattern: {} # Ensure empty for run 6
+
+dataset:
+  dataset_name: "trivia_qa"
+  dataset_config: "rc.nocontext"
+  subset_size: 20000
+
+training:
+  batch_size: 96 # Per-device batch size (Effective BS = 1 * 96 = 96)
+  gradient_accumulation_steps: 1
+  num_epochs: 3
+  learning_rate: 5.6e-5 # Adjusted for 1 GPU (was 1.12e-4)
+  warmup_ratio: 0.1
+  max_length: 1024
+
+trainer:
+  # Steps adjusted for ~105 steps/epoch (Effective BS 192) * 3 epochs = ~315 total steps
+  logging_steps: 30 # Adjusted from 20
+  save_strategy: "steps"
+  save_steps: 100 # Adjusted from 65
+  evaluation_strategy: "no"
+  # eval_steps: 200 # Ignored
+  # per_device_eval_batch_size: 4 # Ignored
+  # eval_accumulation_steps: 4 # Ignored
+  dataloader_num_workers: 8
+  optim: "paged_adamw_8bit"
+  lr_scheduler_type: "cosine"
+  fp16: False
+  bf16: True
+  weight_decay: 0.0
+
